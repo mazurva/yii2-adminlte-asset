@@ -26,43 +26,34 @@
         </form>
         <!-- /.search form -->
 
-        <?= dmstr\widgets\Menu::widget([
-            'items' => [
-                ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                ['label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>', 'url' => ['/gii']],
-                ['label' => '<i class="fa fa-dashboard"></i><span>Debug</span>', 'url' => ['/debug']],
-                ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                [
-                    'label' => '<i class="fa fa-share"></i><span>Same tools</span>',
-                    'url' => '#',
-                    'items' => [
-                        [
-                            'label' => '<i class="fa fa-file-code-o"></i><span>Gii</span>',
-                            'url' => ['/gii'],
-                        ],
-                        [
-                            'label' => '<i class="fa fa-dashboard"></i><span>Debug</span>',
-                            'url' => ['/debug'],
-                        ],
-                        [
-                            'label' => '<i class="fa fa-circle-o"></i> Level One ',
-                            'url' => '#',
-                            'items' => [
-                                [
-                                    'label' => '<i class="fa fa-circle-o"></i> Level Two</a>',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'label' => '<i class="fa fa-circle-o"></i> Level Two ',
-                                    'url' => '#',
-                                    'items' => [
-                                        [
-                                            'label' => '<i class="fa fa-circle-o"></i> Level Three</a>',
-                                            'url' => '#',
-                                        ],
-                                        [
-                                            'label' => '<i class="fa fa-circle-o"></i> Level Three</a>',
-                                            'url' => '#',
+        <?= dmstr\widgets\Menu::widget(
+            [
+                'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
+                'items' => [
+                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    [
+                        'label' => 'Some tools',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                            [
+                                'label' => 'Level One',
+                                'icon' => 'circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
+                                    [
+                                        'label' => 'Level Two',
+                                        'icon' => 'circle-o',
+                                        'url' => '#',
+                                        'items' => [
+                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
+                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
                                         ],
                                     ],
                                 ],
@@ -70,8 +61,8 @@
                         ],
                     ],
                 ],
-            ],
-        ]) ?>
+            ]
+        ) ?>
 
     </section>
 
